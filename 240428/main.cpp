@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
 int main() {
     vector<int> vi;
@@ -12,5 +11,6 @@ int main() {
     for (int i = 0; i < vi.size(); i++) {
         cout << vi[i] << " ";
     }
+    cout << endl;
     return 0;
 }
