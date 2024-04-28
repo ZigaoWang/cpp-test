@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
-
 int main() {
     vector<int> vi;
     for (int i = 1; i < 5; i++) {
