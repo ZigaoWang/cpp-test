@@ -7,7 +7,7 @@ int main() {
         vi.push_back(i);
     }
     vi.insert(vi.begin() + 3, -1);
-    vi.erase(vi.begin()+1,vi.begin() + 4);
+    vi.erase(vi.begin()+1,vi.begin() + 3);
     for (int i = 0; i < vi.size(); i++) {
         cout << vi[i] << " ";
     }
