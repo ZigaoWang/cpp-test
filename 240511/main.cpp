@@ -5,9 +5,9 @@ using namespace std;
 
 // 判断字符是否合法
 bool hf (char s) {
-    if(s >= '0' && s <= '9') return true;
-    if(s >= 'a' && s <= 'z') return true;
-    if(s >= 'A'&& s <= 'Z') return true;
+    if (s >= '0' && s <= '9') return true;
+    if (s >= 'a' && s <= 'z') return true;
+    if (s >= 'A'&& s <= 'Z') return true;
     return false;
 }
 
@@ -23,18 +23,19 @@ int main() {
                 t += s[i]; //将完整的单词存入t中
             }
         }
-        if(!hf(s[i]) || i == s.length()-1){//在map中统计单词出现的次数
+        // 在map中统计单词出现的次数
+        if(!hf(s[i]) || i == s.length()-1){
             if (t.length()!=0) mp[t]++;
-            t.clear();//清空t
+            t.clear(); // 清空t
         }
     }
     int max=0;
     auto it=mp.begin();
     for( ; it != mp.end(); it++){
         // 找到map中最大的整数，以及所对应的字符串，即为出现次数最多的单词
-        if (max<it->second){
-            max = it->second;
-            t = it->first;
+        if (max<it -> second){
+            max = it -> second;
+            t = it -> first;
         }
     }
     cout << t << " " << max;
