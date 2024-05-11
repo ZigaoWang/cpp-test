@@ -18,10 +18,8 @@ int main() {
     for (int i = 0; i < s.length(); i++){
         // 接收一个单词，以非法字符作为隔绝
         if (hf(s[i])){
-            if (hf(s[i])){
-                s[i] = tolower(s[i]); //将存入单词的所有字符都转换成小写字母
-                t += s[i]; //将完整的单词存入t中
-            }
+            s[i] = tolower(s[i]); //将存入单词的所有字符都转换成小写字母
+            t += s[i]; //将完整的单词存入t中
         }
         // 在map中统计单词出现的次数
         if(!hf(s[i]) || i == s.length()-1){
