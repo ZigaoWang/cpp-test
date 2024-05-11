@@ -3,7 +3,7 @@
 #include <map>
 using namespace std;
 
-// 判断字符是否合法
+// 判断输入字符是否合法
 bool hf (char s) {
     if (s >= '0' && s <= '9') return true;
     if (s >= 'a' && s <= 'z') return true;
