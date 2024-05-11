@@ -23,7 +23,7 @@ int main() {
         }
         // 在map中统计单词出现的次数
         if(!hf(s[i]) || i == s.length() - 1){
-            if (t.length() != 0) mp[t]++;
+            if (!t.empty()) mp[t]++;
             t.clear(); // 清空t
         }
     }
