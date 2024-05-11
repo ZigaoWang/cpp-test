@@ -11,7 +11,6 @@ bool hf (char s) {
     return false;
 }
 
-
 int main() {
     string s, t;
     getline(cin, s);
