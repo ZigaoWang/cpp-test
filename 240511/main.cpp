@@ -1,6 +1,14 @@
 #include <iostream>
+#include <cctype>
+#include <algorithm>
+#include <cctype>
+#include <string>
 
+using namespace std;
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    string text;
+    getline(cin, text);
+    cout << text;
+    
     return 0;
 }
