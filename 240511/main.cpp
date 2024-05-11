@@ -22,14 +22,14 @@ int main() {
             t += s[i]; //将完整的单词存入t中
         }
         // 在map中统计单词出现的次数
-        if (!hf(s[i]) || i == s.length() - 1){
-            if (!t.empty()) mp[t]++;
+        if(!hf(s[i]) || i == s.length() - 1){
+            if (t.length() != 0) mp[t]++;
             t.clear(); // 清空t
         }
     }
     int max = 0;
-    auto it = mp.begin();
-    for (; it != mp.end(); it++){
+    auto it=mp.begin();
+    for(; it != mp.end(); it++){
         // 找到map中最大的整数，以及所对应的字符串，即为出现次数最多的单词
         if (max < it -> second){
             max = it -> second;
