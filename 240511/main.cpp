@@ -3,22 +3,24 @@
 #include <map>
 using namespace std;
 
-bool hf(char s){//判断字符是否合法
-    if(s>='0'&&s<='9') return true;
-    if(s>='a'&&s<='z') return true;
-    if(s>='A'&&s<='Z') return true;
+// 判断字符是否合法
+bool hf (char s) {
+    if(s >= '0' && s <= '9') return true;
+    if(s >= 'a' && s <= 'z') return true;
+    if(s >= 'A'&& s <= 'Z') return true;
     return false;
 }
 
 int main() {
-    string s,t;
+    string s, t;
     getline(cin,s);
     map<string,int> mp;
     for(int i=0; i<s.length(); i++){
-        if(hf(s[i])){//接收一个单词，以非法字符作为隔绝
+        // 接收一个单词，以非法字符作为隔绝
+        if(hf(s[i])){
             if(hf(s[i])){
-                s[i]=tolower(s[i]);//将存入单词的所有字符都转换成小写字母
-                t+=s[i];//将完整的单词存入t中
+                s[i]=tolower(s[i]); //将存入单词的所有字符都转换成小写字母
+                t+=s[i]; //将完整的单词存入t中
             }
         }
         if(!hf(s[i]) || i==s.length()-1){//在map中统计单词出现的次数
