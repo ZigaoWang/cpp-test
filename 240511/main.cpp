@@ -49,6 +49,5 @@ int main() {
         i = j;
     }
     cout << mostCommonWord << " " << maxCount << endl;
-
     return 0;
 }
