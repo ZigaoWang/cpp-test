@@ -13,28 +13,28 @@ bool hf (char s) {
 
 int main() {
     string s, t;
-    getline(cin,s);
-    map<string,int> mp;
-    for(int i=0; i<s.length(); i++){
+    getline(cin, s);
+    map<string, int> mp;
+    for (int i = 0; i < s.length(); i++){
         // 接收一个单词，以非法字符作为隔绝
-        if(hf(s[i])){
-            if(hf(s[i])){
-                s[i]=tolower(s[i]); //将存入单词的所有字符都转换成小写字母
-                t+=s[i]; //将完整的单词存入t中
+        if (hf(s[i])){
+            if (hf(s[i])){
+                s[i] = tolower(s[i]); //将存入单词的所有字符都转换成小写字母
+                t += s[i]; //将完整的单词存入t中
             }
         }
-        if(!hf(s[i]) || i==s.length()-1){//在map中统计单词出现的次数
-            if(t.length()!=0) mp[t]++;
+        if(!hf(s[i]) || i == s.length()-1){//在map中统计单词出现的次数
+            if (t.length()!=0) mp[t]++;
             t.clear();//清空t
         }
     }
     int max=0;
-    map<string,int>::iterator it=mp.begin();
-    for( ; it!=mp.end(); it++){
+    auto it=mp.begin();
+    for( ; it != mp.end(); it++){
         // 找到map中最大的整数，以及所对应的字符串，即为出现次数最多的单词
-        if(max<it->second){
-            max=it->second;
-            t=it->first;
+        if (max<it->second){
+            max = it->second;
+            t = it->first;
         }
     }
     cout << t << " " << max;
