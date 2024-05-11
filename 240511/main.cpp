@@ -1,53 +1,40 @@
 #include <iostream>
-#include <cctype>
-#include <algorithm>
 #include <string>
-
+#include <map>
 using namespace std;
+
+bool hf(char s){//判断字符是否合法
+    if(s>='0'&&s<='9') return true;
+    if(s>='a'&&s<='z') return true;
+    if(s>='A'&&s<='Z') return true;
+    return false;
+}
+
 int main() {
-    string text;
-    getline(cin, text);
-    // convert the text to lowercase
-    transform(text.begin(), text.end(), text.begin(), ::tolower);
-    // convert all non-alphabetic characters to spaces
-    for (int i = 0; i < text.size(); i++) {
-        if (!isalpha(text[i])) {
-            text[i] = ' ';
-        }
-    }
-    // find the most common word
-    string mostCommonWord;
-    int maxCount = 0;
-    int i = 0;
-    while (i < text.size()) {
-        while (i < text.size() && text[i] == ' ') {
-            i++;
-        }
-        int j = i;
-        while (j < text.size() && text[j] != ' ') {
-            j++;
-        }
-        string word = text.substr(i, j - i);
-        int count = 0;
-        for (int k = 0; k < text.size(); k++) {
-            if (text[k] == ' ') {
-                int l = k + 1;
-                while (l < text.size() && text[l] != ' ') {
-                    l++;
-                }
-                string otherWord = text.substr(k + 1, l - k - 1);
-                if (word == otherWord) {
-                    count++;
-                }
-                k = l;
+    string s,t;
+    getline(cin,s);
+    map<string,int> mp;
+    for(int i=0; i<s.length(); i++){
+        if(hf(s[i])){//接收一个单词，以非法字符作为隔绝
+            if(hf(s[i])){
+                s[i]=tolower(s[i]);//将存入单词的所有字符都转换成小写字母
+                t+=s[i];//将完整的单词存入t中
             }
         }
-        if (count > maxCount) {
-            maxCount = count;
-            mostCommonWord = word;
+        if(!hf(s[i]) || i==s.length()-1){//在map中统计单词出现的次数
+            if(t.length()!=0) mp[t]++;
+            t.clear();//清空t
         }
-        i = j;
     }
-    cout << mostCommonWord << " " << maxCount << endl;
+    int max=0;
+    map<string,int>::iterator it=mp.begin();
+    for( ; it!=mp.end(); it++){
+        // 找到map中最大的整数，以及所对应的字符串，即为出现次数最多的单词
+        if(max<it->second){
+            max=it->second;
+            t=it->first;
+        }
+    }
+    cout << t << " " << max;
     return 0;
 }
