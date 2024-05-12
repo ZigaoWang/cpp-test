@@ -12,5 +12,6 @@ int main() {
 
     int test[100];
     cout << test; // 输出为数组第一位 0 的地址
+
     return 0;
 }
